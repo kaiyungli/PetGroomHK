@@ -114,15 +114,26 @@ function Header({ onShowFavorites }) {
         <Link href="/" className="text-2xl font-bold text-gray-800">
           🐾 PetGroom HK
         </Link>
-        <button 
-          onClick={onShowFavorites}
-          className="flex items-center gap-2 text-gray-600 hover:text-red-500 transition"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-          </svg>
-          <span className="hidden sm:inline">我的收藏</span>
-        </button>
+        <div className="flex items-center gap-4">
+          <Link 
+            href="/pets"
+            className="flex items-center gap-2 text-gray-600 hover:text-purple-600 transition"
+          >
+            <span className="hidden sm:inline">我的寵物</span>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </Link>
+          <button 
+            onClick={onShowFavorites}
+            className="flex items-center gap-2 text-gray-600 hover:text-red-500 transition"
+          >
+            <span className="hidden sm:inline">收藏</span>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
   );
