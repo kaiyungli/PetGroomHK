@@ -1,83 +1,21 @@
-# PetGroom HK - Railway 部署配置
-
-## 🚀 部署步驟
-
-### 1. 建立 Railway 專案
-
-```bash
-# 安裝 Railway CLI
-npm install -g @railway/cli
-
-# 登入
-railway login
-
-# 初始化專案
-railway init
-
-# 連結 PostgreSQL
-railway add postgresql
-
-# 設定環境變數
-railway variables set DATABASE_URL="$DATABASE_URL"
-railway variables set JWT_SECRET="your-super-secret-key"
-railway variables set JWT_EXPIRES_IN="7d"
-railway variables set NODE_ENV="production"
-```
-
-### 2. 部署指令
-
-```bash
-railway up
-```
-
-### 3. 設定 Health Check
-
-```
-Endpoint: /api/v1/health
-```
-
----
-
-## 📋 Railway.json
-
-```json
 {
   "$schema": "https://railway.app/schema.json",
   "build": {
-    "builder": "NIXPACKS"
+    "builder": "NIXPACKS",
+    "nixpacksPlan": {
+      "providers": ["nodejs"],
+      "build": {
+        "cmd": "npm install && npm run prisma:generate"
+      },
+      "start": {
+        "cmd": "npm run start:prod"
+      }
+    }
   },
   "deploy": {
     "startCommand": "npm run start:prod",
-    "healthcheckPath": "/",
-    "healthcheckTimeout": 10,
+    "healthcheckPath": "/health",
+    "healthcheckTimeout": 30,
     "restartPolicy": "ON_FAILURE"
   }
 }
-```
-
----
-
-## 🌐 Vercel 前端部署
-
-### vercel.json
-
-```json
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
-  "env": {
-    "NEXT_PUBLIC_API_URL": "https://petgroom-api.railway.app/api/v1"
-  }
-}
-```
-
----
-
-## 🔗 域名設定
-
-| 服務 | 域名 |
-|------|------|
-| 前端 | petgroomhk.com |
-| API | api.petgroomhk.com |
-| 文檔 | docs.petgroomhk.com |

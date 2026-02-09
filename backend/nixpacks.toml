@@ -1,0 +1,8 @@
+[pack]
+nixPacksVersion = "1"
+
+[build]
+buildCommand = "npm install && npm run prisma:generate && npm run build"
+
+[start]
+startCommand = "npm run start:prod"
