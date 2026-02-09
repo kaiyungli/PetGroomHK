@@ -4,9 +4,9 @@
     "builder": "DOCKERFILE"
   },
   "deploy": {
-    "startCommand": "npm run start:prod",
-    "healthcheckPath": "/health",
-    "healthcheckTimeout": 60,
+    "startCommand": "npx prisma migrate deploy && npm run start:prod",
+    "healthcheckPath": "/",
+    "healthcheckTimeout": 180,
     "restartPolicy": "ON_FAILURE"
   }
 }

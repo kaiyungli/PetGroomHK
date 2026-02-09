@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const STORAGE_KEY = 'petgroomhk_pets';
 
-export default function usePets() {
+function usePets() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isClient, setIsClient] = useState(false);
@@ -94,3 +94,5 @@ export default function usePets() {
     addGroomingRecord,
   };
 }
+
+export { usePets as default };
