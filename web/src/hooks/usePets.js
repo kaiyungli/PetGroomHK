@@ -5,9 +5,17 @@ const STORAGE_KEY = 'petgroomhk_pets';
 export function usePets() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isClient, setIsClient] = useState(false);
+
+  // 確保只在客戶端執行
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // 從 LocalStorage 載入
   useEffect(() => {
+    if (!isClient) return;
+    
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
@@ -17,10 +25,12 @@ export function usePets() {
       console.error('Error loading pets:', error);
     }
     setLoading(false);
-  }, []);
+  }, [isClient]);
 
   // 儲存到 LocalStorage
   const savePets = (newPets) => {
+    if (!isClient) return;
+    
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newPets));
       setPets(newPets);

@@ -386,12 +386,28 @@ export default function MyPetsPage() {
 
 // 美容記錄 Modal
 function GroomingRecordModal({ pet, onClose, onSave }) {
-  const [record, setRecord] = useState({
-    date: new Date().toISOString().slice(0, 10),
-    service: '',
-    shop: '',
-    notes: '',
-  });
+  const [record, setRecord] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setRecord({
+        date: new Date().toISOString().slice(0, 10),
+        service: '',
+        shop: '',
+        notes: '',
+      });
+    }
+  }, []);
+
+  if (!record) {
+    return (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+        <div className="bg-white rounded-2xl w-full max-w-md p-6">
+          <p className="text-center text-gray-500">載入中...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
