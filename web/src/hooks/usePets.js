@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const STORAGE_KEY = 'petgroomhk_pets';
 
-export function usePets() {
+export default function usePets() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isClient, setIsClient] = useState(false);
