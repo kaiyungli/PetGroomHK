@@ -120,8 +120,8 @@ function Header({ onShowFavorites }) {
             className="flex items-center gap-2 text-gray-600 hover:text-purple-600 transition"
           >
             <span className="hidden sm:inline">我的寵物</span>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C13.1046 2 14 2.89543 14 4C14 5.10457 13.1046 6 12 6C10.8954 6 10 5.10457 10 4C10 2.89543 10.8954 2 12 2ZM18 4C18 2.89543 17.1046 2 16 2C14.8954 2 14 2.89543 14 4C14 5.10457 14.8954 6 16 6C17.1046 6 18 5.10457 18 4ZM6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6C5.10457 6 6 5.10457 6 4ZM19.5 9C20.8807 9 22 10.1193 22 11.5C22 12.8807 20.8807 14 19.5 14C18.1193 14 17 12.8807 17 11.5C17 10.1193 18.1193 9 19.5 9ZM4.5 9C5.88071 9 7 10.1193 7 11.5C7 12.8807 5.88071 14 4.5 14C3.11929 14 2 12.8807 2 11.5C2 10.1193 3.11929 9 4.5 9ZM12 18C14.5 18 16.5 16.5 17 14H7C7.5 16.5 9.5 18 12 18ZM20 19C20 19.5523 19.5523 20 19 20H5C4.44772 20 4 19.5523 4 19C4 18.4477 4.44772 18 5 18H19C19.5523 18 20 18.4477 20 19Z"/>
             </svg>
           </Link>
           <button 
@@ -270,6 +270,29 @@ function MapButton({ address }) {
   );
 }
 
+function MapEmbed({ address }) {
+  const encodedAddress = encodeURIComponent(address + ', Hong Kong');
+  const mapUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodedAddress}&zoom=15`;
+  
+  // 使用無 API key 的簡化版本
+  const fallbackUrl = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+
+  return (
+    <div className="w-full h-48 rounded-lg overflow-hidden bg-gray-100">
+      <iframe
+        src={`https://maps.google.com/maps?q=${encodedAddress}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Shop Location"
+      />
+    </div>
+  );
+}
+
 function ShopModal({ shop, onClose }) {
   if (!shop) return null;
 
@@ -303,7 +326,7 @@ function ShopModal({ shop, onClose }) {
             </div>
           </div>
 
-          <div className="space-y-3 mb-6">
+          <div className="space-y-3 mb-4">
             <div className="flex items-start gap-3">
               <svg className="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -316,6 +339,12 @@ function ShopModal({ shop, onClose }) {
               </svg>
               <p className="text-blue-600">{shop.phone}</p>
             </div>
+          </div>
+
+          {/* Google Map */}
+          <div className="mb-4">
+            <h3 className="font-semibold text-gray-800 mb-2">📍 地圖</h3>
+            <MapEmbed address={shop.address} />
           </div>
 
           <div className="mb-6">
