@@ -88,43 +88,43 @@ function Header({ onShowFavorites }) {
 
 function Hero({ onSearchFocus }) {
   return (
-    <div className="relative bg-gradient-to-br from-[#FFF7E4] via-[#FFF7E4] to-[#FFF7E4] overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-pink-400 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+    <div className="relative bg-[#FFF7E4] overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#D7CCC8] rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 bg-[#BCAAA4] rounded-full filter blur-3xl animate-pulse delay-1000"></div>
       </div>
       <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur rounded-full px-4 py-2 mb-6">
+        <div className="inline-flex items-center gap-2 bg-[#D7CCC8] rounded-full px-4 py-2 mb-6">
           <span className="text-2xl">🐕</span>
-          <span className="text-white/90 text-sm font-medium">香港 No.1 寵物美容平台</span>
+          <span className="text-[#695D4E] text-sm font-medium">香港 No.1 寵物美容平台</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#695D4E] mb-4 leading-tight">
           為毛孩搵最好嘅<br />
           <span className="text-[#8D6E63]">美容服務 💆‍♀️</span>
         </h1>
-        <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+        <p className="text-[#695D4E]/80 text-lg mb-8 max-w-xl mx-auto">
           透明價格 • WhatsApp 預約 • 真實評價<br />
           一 App 搞掂毛孩美容大小事
         </p>
         <div className="relative max-w-2xl mx-auto" onClick={onSearchFocus}>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FFF7E4] to-[#FFF7E4] rounded-2xl blur opacity-30"></div>
+          <div className="absolute inset-0 bg-[#D7CCC8] rounded-2xl blur opacity-30"></div>
           <div className="relative flex items-center bg-white rounded-2xl shadow-2xl p-2">
             <svg className="w-6 h-6 text-[#8D6E63] ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
             <input type="text" placeholder="搜尋地區、服務、店家名稱..." 
-              className="flex-1 py-3 px-3 bg-transparent focus:outline-none text-gray-700 placeholder-gray-400 text-lg" />
-            <button className="bg-gradient-to-r from-[#FFF7E4] to-[#FFF7E4] text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
+              className="flex-1 py-3 px-3 bg-transparent focus:outline-none text-[#695D4E] placeholder-[#A1887F] text-lg" />
+            <button className="bg-[#695D4E] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#5D4E3E] transition-all">
               搜尋
             </button>
           </div>
         </div>
         <div className="flex flex-wrap justify-center gap-4 mt-8">
-          <span className="text-white/70 text-sm">🔥 熱門：</span>
-          <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-white/30 transition">銅鑼灣</span>
-          <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-white/30 transition">日本水療</span>
-          <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-white/30 transition">SPA</span>
+          <span className="text-[#695D4E]/70 text-sm">🔥 熱門：</span>
+          <span className="bg-[#D7CCC8] text-[#695D4E] px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-[#BCAAA4] transition">銅鑼灣</span>
+          <span className="bg-[#D7CCC8] text-[#695D4E] px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-[#BCAAA4] transition">日本水療</span>
+          <span className="bg-[#D7CCC8] text-[#695D4E] px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-[#BCAAA4] transition">SPA</span>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FFF7E4] to-transparent"></div>
     </div>
   );
 }
