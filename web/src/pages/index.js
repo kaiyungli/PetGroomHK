@@ -3,14 +3,20 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 const SAMPLE_SHOPS = [
-  { id: '1', name: 'Paw Palace', district: 'Causeway Bay', districtCn: '銅鑼灣', phone: '2576 3999', address: '香港銅鑼灣富明街1號寶富大樓4樓A室', rating: 4.8, reviewCount: 128, priceRange: '$300-800', priceMin: 300, priceMax: 800, services: ['日本水療', '寵物美容', '精品店'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.2805, lng: 114.1836 },
-  { id: '2', name: 'Paws In', district: 'Yuen Long', districtCn: '元朗', phone: '5538 0168', address: '元朗鳳攸北街11-15號益發大廈地下3號鋪', rating: 4.7, reviewCount: 95, priceRange: '$250-600', priceMin: 250, priceMax: 600, services: ['日式美容', 'SPA', '納米微泡'], image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400', lat: 22.4446, lng: 114.0224 },
-  { id: '3', name: 'Fluffy Little Things', district: 'Wan Chai', districtCn: '灣仔', phone: '2368 9833', address: '灣仔活道21號1樓B室', rating: 4.9, reviewCount: 156, priceRange: '$350-900', priceMin: 350, priceMax: 900, services: ['按摩', '水療', '日托服務'], image: 'https://images.unsplash.com/photo-1591768575198-ad40e1715d53?w=400', lat: 22.2793, lng: 114.1718 },
-  { id: '4', name: 'Ruff & Fetch', district: 'Jordan', districtCn: '佐敦', phone: '2348 0262', whatsapp: '6674 1567', address: '九龍佐敦官涌街7號', rating: 4.6, reviewCount: 203, priceRange: '$280-700', priceMin: 280, priceMax: 700, services: ['美容', '託管', '水療'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.3050, lng: 114.1718 },
-  { id: '5', name: 'Private i PETS', district: 'Causeway Bay', districtCn: '銅鑼灣', phone: '2877 3100', address: '銅鑼灣京士頓街9號Shop A', rating: 4.5, reviewCount: 89, priceRange: '$400-1000', priceMin: 400, priceMax: 1000, services: ['人寵共融', '游泳池', '診所'], image: 'https://images.unsplash.com/photo-1599148400620-8e1ff0bf28a8?w=400', lat: 22.2783, lng: 114.1822 },
-  { id: '6', name: 'WOOF MAGIC', district: 'Sai Kung', districtCn: '西貢', phone: '9747 8349', address: '西貢惠民路28號WM酒店LG樓C2B號舖', rating: 4.7, reviewCount: 67, priceRange: '$350-850', priceMin: 350, priceMax: 850, services: ['美容', '派對租場', '寵物用品'], image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400', lat: 22.3841, lng: 114.2703 },
-  { id: '7', name: 'Dogotel & Spa', district: 'Mong Kok', districtCn: '旺角', phone: '2711 0019', address: '旺角梭椏道11號地下A店', rating: 4.4, reviewCount: 145, priceRange: '$300-750', priceMin: 300, priceMax: 750, services: ['美容', '日托', '住宿'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.3193, lng: 114.1694 },
-  { id: '8', name: 'Q-Pet', district: 'Tsuen Wan', districtCn: '荃灣', phone: '2405 0616', address: '荃灣享和街88號安豐大廈6號舖', rating: 4.3, reviewCount: 234, priceRange: '$200-500', priceMin: 200, priceMax: 500, services: ['美容', '用品', '透明玻璃設計'], image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400', lat: 22.3738, lng: 114.1133 },
+  { id: '1', name: 'Paw Palace', district: 'Causeway Bay', districtCn: '銅鑼灣', phone: '2576 3999', address: '香港銅鑼灣富明街1號寶富大樓4樓A室', rating: 4.8, reviewCount: 128, priceRange: '$300-800', priceMin: 300, priceMax: 800, services: ['日本水療', '寵物美容', '精品店'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.2805, lng: 114.1836, openingHours: '10:00-20:00', is24Hours: false },
+  { id: '2', name: 'Paws In', district: 'Yuen Long', districtCn: '元朗', phone: '5538 0168', address: '元朗鳳攸北街11-15號益發大廈地下3號鋪', rating: 4.7, reviewCount: 95, priceRange: '$250-600', priceMin: 250, priceMax: 600, services: ['日式美容', 'SPA', '納米微泡'], image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400', lat: 22.4446, lng: 114.0224, openingHours: '11:00-21:00', is24Hours: false },
+  { id: '3', name: 'Fluffy Little Things', district: 'Wan Chai', districtCn: '灣仔', phone: '2368 9833', address: '灣仔活道21號1樓B室', rating: 4.9, reviewCount: 156, priceRange: '$350-900', priceMin: 350, priceMax: 900, services: ['按摩', '水療', '日托服務'], image: 'https://images.unsplash.com/photo-1591768575198-ad40e1715d53?w=400', lat: 22.2793, lng: 114.1718, openingHours: '09:00-19:00', is24Hours: false },
+  { id: '4', name: 'Ruff & Fetch', district: 'Jordan', districtCn: '佐敦', phone: '2348 0262', whatsapp: '6674 1567', address: '九龍佐敦官涌街7號', rating: 4.6, reviewCount: 203, priceRange: '$280-700', priceMin: 280, priceMax: 700, services: ['美容', '託管', '水療'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.3050, lng: 114.1718, openingHours: '10:00-22:00', is24Hours: false },
+  { id: '5', name: 'Private i PETS', district: 'Causeway Bay', districtCn: '銅鑼灣', phone: '2877 3100', address: '銅鑼灣京士頓街9號Shop A', rating: 4.5, reviewCount: 89, priceRange: '$400-1000', priceMin: 400, priceMax: 1000, services: ['人寵共融', '游泳池', '診所'], image: 'https://images.unsplash.com/photo-1599148400620-8e1ff0bf28a8?w=400', lat: 22.2783, lng: 114.1822, openingHours: '00:00-23:59', is24Hours: true },
+  { id: '6', name: 'WOOF MAGIC', district: 'Sai Kung', districtCn: '西貢', phone: '9747 8349', address: '西貢惠民路28號WM酒店LG樓C2B號舖', rating: 4.7, reviewCount: 67, priceRange: '$350-850', priceMin: 350, priceMax: 850, services: ['美容', '派對租場', '寵物用品'], image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400', lat: 22.3841, lng: 114.2703, openingHours: '12:00-20:00', is24Hours: false },
+  { id: '7', name: 'Dogotel & Spa', district: 'Mong Kok', districtCn: '旺角', phone: '2711 0019', address: '旺角梭椏道11號地下A店', rating: 4.4, reviewCount: 145, priceRange: '$300-750', priceMin: 300, priceMax: 750, services: ['美容', '日托', '住宿'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.3193, lng: 114.1694, openingHours: '08:00-22:00', is24Hours: false },
+  { id: '8', name: 'Q-Pet', district: 'Tsuen Wan', districtCn: '荃灣', phone: '2405 0616', address: '荃灣享和街88號安豐大廈6號舖', rating: 4.3, reviewCount: 234, priceRange: '$200-500', priceMin: 200, priceMax: 500, services: ['美容', '用品', '透明玻璃設計'], image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400', lat: 22.3738, lng: 114.1133, openingHours: '10:00-20:00', is24Hours: false },
+];
+
+const OPENING_HOURS_FILTERS = [
+  { label: '全部', value: 'all' },
+  { label: '🏪 24小時營業', value: '24h' },
+  { label: '🌞 今日營業', value: 'open_today' },
 ];
 
 const DISTRICTS = ['全港', '銅鑼灣', '旺角', '佐敦', '元朗', '荃灣', '沙田', '西貢', '灣仔', '太子', '荔枝角', '何文田', '土瓜灣', '北角', '觀塘'];
@@ -296,7 +302,7 @@ function HotTags({ onSelectTag }) {
   );
 }
 
-function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSelectPrice, selectedRating, onSelectRating, onReset }) {
+function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSelectPrice, selectedRating, onSelectRating, selectedOpeningHours, onSelectOpeningHours, onReset }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
     <div className="max-w-4xl mx-auto px-4 mb-4">
@@ -305,20 +311,36 @@ function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSele
           <button key={district} onClick={() => onSelectDistrict(district)}
             className={`px-4 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all shadow-sm hover:shadow-md active:scale-95 ${
               selectedDistrict === district
-                ? 'bg-gradient-to-r from-[#FFF7E4] to-[#FFF7E4] text-white shadow-[#BCAAA4] shadow-lg'
-                : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
+                ? 'bg-[#695D4E] text-white shadow-[#BCAAA4] shadow-lg'
+                : 'bg-white text-[#695D4E] border border-[#D7CCC8] hover:bg-[#FFF7E4]'
             }`}>{district}</button>
         ))}
         <button onClick={() => setIsExpanded(!isExpanded)}
           className={`px-4 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all shadow-sm ${
-            isExpanded ? 'bg-gray-200 text-gray-700' : 'bg-white text-gray-600 border border-gray-200'
+            isExpanded ? 'bg-[#D7CCC8] text-[#695D4E]' : 'bg-white text-[#695D4E] border border-[#D7CCC8]'
           }`}>{isExpanded ? '收起' : '更多'}</button>
       </div>
       {isExpanded && (
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-5 mb-4 space-y-5">
+        <div className="bg-white rounded-2xl shadow-lg border border-[#D7CCC8] p-5 mb-4 space-y-5">
           <div>
-            <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600">💰</span>
+            <h4 className="text-sm font-semibold text-[#695D4E] mb-3 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#D7CCC8] flex items-center justify-center text-[#695D4E]">⏰</span>
+              營業時間
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {OPENING_HOURS_FILTERS.map((filter) => (
+                <button key={filter.value} onClick={() => onSelectOpeningHours(filter.value)}
+                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all shadow-sm hover:shadow-md active:scale-95 ${
+                    selectedOpeningHours === filter.value
+                      ? 'bg-[#695D4E] text-white shadow-[#BCAAA4]'
+                      : 'bg-[#FFF7E4] text-[#695D4E] border border-[#D7CCC8] hover:bg-[#D7CCC8]'
+                  }`}>{filter.label}</button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold text-[#695D4E] mb-3 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#D7CCC8] flex items-center justify-center text-[#695D4E]">💰</span>
               價格範圍
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -326,14 +348,14 @@ function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSele
                 <button key={range.value} onClick={() => onSelectPrice(range.value)}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all shadow-sm hover:shadow-md active:scale-95 ${
                     selectedPrice === range.value
-                      ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-green-500/30'
-                      : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100'
+                      ? 'bg-[#695D4E] text-white shadow-[#BCAAA4]'
+                      : 'bg-[#FFF7E4] text-[#695D4E] border border-[#D7CCC8] hover:bg-[#D7CCC8]'
                   }`}>{range.label}</button>
               ))}
             </div>
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+            <h4 className="text-sm font-semibold text-[#695D4E] mb-3 flex items-center gap-2">
               <span className="w-6 h-6 rounded-full bg-[#FFF7E4] flex items-center justify-center text-[#695D4E]">⭐</span>
               最低評分
             </h4>
@@ -342,14 +364,14 @@ function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSele
                 <button key={rating.value} onClick={() => onSelectRating(rating.value)}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all shadow-sm hover:shadow-md active:scale-95 ${
                     selectedRating === rating.value
-                      ? 'bg-gradient-to-r from-[#FFF7E4] to-[#FFF7E4] text-white shadow-[#BCAAA4]'
-                      : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100'
+                      ? 'bg-[#695D4E] text-white shadow-[#BCAAA4]'
+                      : 'bg-[#FFF7E4] text-[#695D4E] border border-[#D7CCC8] hover:bg-[#D7CCC8]'
                   }`}>{rating.label}</button>
               ))}
             </div>
           </div>
-          <div className="flex justify-end pt-2 border-t border-gray-100">
-            <button onClick={onReset} className="text-sm text-gray-500 hover:text-[#695D4E] flex items-center gap-1 transition-colors">
+          <div className="flex justify-end pt-2 border-t border-[#D7CCC8]">
+            <button onClick={onReset} className="text-sm text-[#695D4E] hover:text-[#8D6E63] flex items-center gap-1 transition-colors">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
               重置篩選
             </button>
@@ -623,6 +645,7 @@ export default function Home() {
   const [selectedDistrict, setSelectedDistrict] = useState('全港');
   const [selectedPrice, setSelectedPrice] = useState('all');
   const [selectedRating, setSelectedRating] = useState('all');
+  const [selectedOpeningHours, setSelectedOpeningHours] = useState('all');
   const [sortBy, setSortBy] = useState('rating_desc');
   const [selectedShop, setSelectedShop] = useState(null);
   const [favorites, setFavorites] = useState([]);
@@ -645,9 +668,13 @@ export default function Home() {
     if (selectedDistrict !== '全港') result = result.filter(shop => shop.districtCn === selectedDistrict || shop.district === selectedDistrict);
     if (selectedPrice !== 'all') { const range = PRICE_RANGES.find(r => r.value === selectedPrice); if (range) result = result.filter(shop => shop.priceMin >= range.min && shop.priceMax <= range.max); }
     if (selectedRating !== 'all') { const minRating = parseFloat(selectedRating); result = result.filter(shop => shop.rating >= minRating); }
+    if (selectedOpeningHours !== 'all') {
+      if (selectedOpeningHours === '24h') result = result.filter(shop => shop.is24Hours);
+      if (selectedOpeningHours === 'open_today') result = result.filter(shop => !shop.is24Hours);
+    }
     result.sort((a, b) => { switch (sortBy) { case 'rating_desc': return b.rating - a.rating; case 'rating_asc': return a.rating - b.rating; case 'price_asc': return a.priceMin - b.priceMin; case 'price_desc': return b.priceMin - a.priceMin; case 'reviews_desc': return b.reviewCount - a.reviewCount; default: return 0; } });
     return result;
-  }, [shops, searchText, selectedDistrict, selectedPrice, selectedRating, sortBy]);
+  }, [shops, searchText, selectedDistrict, selectedPrice, selectedRating, selectedOpeningHours, sortBy]);
 
   const displayShops = showFavorites ? favorites : filteredAndSortedShops;
 
@@ -663,7 +690,7 @@ export default function Home() {
     else if (tag.type === 'service') setSearchText(tag.value);
   };
   const handleSelectCategory = (name) => setSearchText(name);
-  const handleReset = () => { setSelectedDistrict('全港'); setSelectedPrice('all'); setSelectedRating('all'); setSearchText(''); };
+  const handleReset = () => { setSelectedDistrict('全港'); setSelectedPrice('all'); setSelectedRating('all'); setSelectedOpeningHours('all'); setSearchText(''); };
 
   return (
     <>
@@ -681,7 +708,7 @@ export default function Home() {
             {!searchText && <TopShopsSection shops={shops} onShopClick={setSelectedShop} />}
             <SearchBar value={searchText} onChange={setSearchText} suggestions={searchSuggestions} onSelectSuggestion={handleSelectSuggestion} />
             <HotTags onSelectTag={handleSelectHotTag} />
-            <FilterPanel selectedDistrict={selectedDistrict} onSelectDistrict={setSelectedDistrict} selectedPrice={selectedPrice} onSelectPrice={setSelectedPrice} selectedRating={selectedRating} onSelectRating={setSelectedRating} onReset={handleReset} />
+            <FilterPanel selectedDistrict={selectedDistrict} onSelectDistrict={setSelectedDistrict} selectedPrice={selectedPrice} onSelectPrice={setSelectedPrice} selectedRating={selectedRating} onSelectRating={setSelectedRating} selectedOpeningHours={selectedOpeningHours} onSelectOpeningHours={setSelectedOpeningHours} onReset={handleReset} />
             <SortDropdown value={sortBy} onChange={setSortBy} count={filteredAndSortedShops.length} />
             {!searchText && <StatsBar />}
             {!searchText && <TestimonialsSection />}
