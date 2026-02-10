@@ -634,7 +634,6 @@ export default function Home() {
         {!showFavorites ? (
           <>
             <Hero onSearchFocus={() => document.querySelector('input[type="text"]')?.focus()} />
-            <WhyUsSection />
             <ServiceCategories onSelectCategory={handleSelectCategory} />
             {!searchText && <TopShopsSection shops={shops} onShopClick={setSelectedShop} />}
             <SearchBar value={searchText} onChange={setSearchText} suggestions={searchSuggestions} onSelectSuggestion={handleSelectSuggestion} />
@@ -643,6 +642,7 @@ export default function Home() {
             <SortDropdown value={sortBy} onChange={setSortBy} count={filteredAndSortedShops.length} />
             {!searchText && <StatsBar />}
             {!searchText && <TestimonialsSection />}
+            {!searchText && <WhyUsSection />}
           </>
         ) : (
           <div className="max-w-4xl mx-auto px-4 py-4">
