@@ -25,10 +25,10 @@ const HOT_TAGS = [
   { label: '🐕 美容', type: 'service', value: '美容' }
 ];
 const SERVICE_CATEGORIES = [
-  { icon: '🛁', name: '日本水療', color: 'from-[#FFF7E4] to-[#FFF7E4]' },
-  { icon: '💆‍♀️', name: 'SPA 按摩', color: 'from-pink-500 to-pink-600' },
-  { icon: '✂️', name: '美容修剪', color: 'from-blue-500 to-blue-600' },
-  { icon: '🏊', name: '游泳池', color: 'from-cyan-500 to-cyan-600' },
+  { icon: '🛁', name: '日本水療' },
+  { icon: '💆‍♀️', name: 'SPA 按摩' },
+  { icon: '✂️', name: '美容修剪' },
+  { icon: '🏊', name: '游泳池' },
 ];
 const WHY_US = [
   { icon: '💰', title: '透明價格', desc: '清楚列明收費，唔怕被呃錢' },
@@ -172,16 +172,13 @@ function WhyUsSection() {
 function ServiceCategories({ onSelectCategory }) {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h2 className="text-xl font-bold text-gray-800 mb-6">熱門服務類型</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <h2 className="text-xl font-bold text-[#695D4E] mb-6">熱門服務類型</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {SERVICE_CATEGORIES.map((cat, index) => (
           <button key={index} onClick={() => onSelectCategory(cat.name)}
-            className={`relative overflow-hidden rounded-2xl p-6 text-white text-left hover:scale-105 transition-all shadow-lg`}>
-            <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-90`}></div>
-            <div className="relative">
-              <span className="text-4xl mb-2 block">{cat.icon}</span>
-              <span className="font-bold text-lg">{cat.name}</span>
-            </div>
+            className="bg-[#FFF7E4] border border-[#D7CCC8] rounded-xl p-4 text-center hover:shadow-md transition-all hover:scale-[1.02]">
+            <span className="text-2xl mb-1 block">{cat.icon}</span>
+            <span className="font-medium text-[#695D4E] text-sm">{cat.name}</span>
           </button>
         ))}
       </div>
