@@ -1,5 +1,5 @@
 // API route for user favorites sync (using device_id as user identifier)
-import { sql } from '@vercel/postgres';
+import { getUserFavorites, updateUserFavorites } from '../../lib/db';
 
 export default async function handler(request) {
   const { device_id } = request.query;
@@ -15,25 +15,9 @@ export default async function handler(request) {
   try {
     if (method === 'GET') {
       // Get user favorites
-      const result = await sql`
-        SELECT favorites, pets FROM users WHERE device_id = ${device_id}
-      `;
+      const favorites = await getUserFavorites(device_id);
 
-      if (result.rows.length === 0) {
-        // Create new user record
-        await sql`
-          INSERT INTO users (device_id, favorites, pets) VALUES (${device_id}, '[]', '[]')
-        `;
-        return new Response(JSON.stringify({ favorites: [], pets: [] }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-        });
-      }
-
-      return new Response(JSON.stringify({
-        favorites: result.rows[0].favorites,
-        pets: result.rows[0].pets,
-      }), {
+      return new Response(JSON.stringify({ favorites }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -43,12 +27,7 @@ export default async function handler(request) {
       const body = await request.json();
       const { favorites } = body;
 
-      await sql`
-        INSERT INTO users (device_id, favorites, pets, updated_at)
-        VALUES (${device_id}, ${JSON.stringify(favorites)}, '[]', CURRENT_TIMESTAMP)
-        ON CONFLICT (device_id)
-        DO UPDATE SET favorites = ${JSON.stringify(favorites)}, updated_at = CURRENT_TIMESTAMP
-      `;
+      await updateUserFavorites(device_id, favorites);
 
       return new Response(JSON.stringify({ success: true }), {
         status: 200,

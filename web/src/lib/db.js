@@ -1,10 +1,17 @@
-// Database connection utility for Vercel Postgres
-import { sql } from '@vercel/postgres';
+// Database connection utility using pg
+import pg from 'pg';
+
+const { Pool } = pg;
+
+// Create a pool using environment variable
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 // Test connection
 export async function testConnection() {
   try {
-    const result = await sql`SELECT NOW()`;
+    const result = await pool.query('SELECT NOW()');
     console.log('✅ Database connected:', result.rows[0].now);
     return true;
   } catch (error) {
@@ -66,24 +73,25 @@ export async function getShops(filters = {}) {
     default: query += ' ORDER BY rating DESC';
   }
 
-  query += ` LIMIT $${paramIndex} OFFSET $${paramIndex + 1}`;
+  query += ` LIMIT $${paramIndex} OFFSET ${paramIndex + 1}`;
   params.push(limit, offset);
 
-  const result = await sql.query(query, params);
+  const result = await pool.query(query, params);
   return result.rows;
 }
 
 // Get single shop with reviews
 export async function getShopById(id) {
-  const shopResult = await sql`SELECT * FROM shops WHERE id = ${id}`;
+  const shopResult = await pool.query('SELECT * FROM shops WHERE id = $1', [id]);
   
   if (shopResult.rows.length === 0) {
     return null;
   }
 
-  const reviewsResult = await sql`
-    SELECT * FROM reviews WHERE shop_id = ${id} ORDER BY created_at DESC LIMIT 10
-  `;
+  const reviewsResult = await pool.query(
+    'SELECT * FROM reviews WHERE shop_id = $1 ORDER BY created_at DESC LIMIT 10',
+    [id]
+  );
 
   return {
     ...shopResult.rows[0],
@@ -93,31 +101,28 @@ export async function getShopById(id) {
 
 // Get user favorites
 export async function getUserFavorites(deviceId) {
-  const result = await sql`
-    SELECT favorites FROM users WHERE device_id = ${deviceId}
-  `;
+  const result = await pool.query(
+    'SELECT favorites FROM users WHERE device_id = $1',
+    [deviceId]
+  );
   
   if (result.rows.length === 0) {
     return [];
   }
   
-  return result.rows[0].favorites;
+  return result.rows[0].favorites || [];
 }
 
 // Update user favorites
 export async function updateUserFavorites(deviceId, favorites) {
-  await sql`
-    INSERT INTO users (device_id, favorites, updated_at)
-    VALUES (${deviceId}, ${JSON.stringify(favorites)}, CURRENT_TIMESTAMP)
-    ON CONFLICT (device_id)
-    DO UPDATE SET favorites = ${JSON.stringify(favorites)}, updated_at = CURRENT_TIMESTAMP
-  `;
+  await pool.query(
+    `INSERT INTO users (device_id, favorites, updated_at)
+     VALUES ($1, $2, CURRENT_TIMESTAMP)
+     ON CONFLICT (device_id)
+     DO UPDATE SET favorites = $2, updated_at = CURRENT_TIMESTAMP`,
+    [deviceId, JSON.stringify(favorites)]
+  );
   return true;
 }
 
-// Seed sample data (for development)
-export async function seedSampleData() {
-  // This would be used only for initial setup
-  // In production, use Vercel Postgres CLI or migrations
-  console.log('⚠️ Please run schema.sql manually in Vercel Postgres Console');
-}
+export default pool;
