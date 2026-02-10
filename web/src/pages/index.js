@@ -3,14 +3,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 const SAMPLE_SHOPS = [
-  { id: '1', name: 'Paw Palace', district: 'Causeway Bay', districtCn: '銅鑼灣', phone: '2576 3999', address: '香港銅鑼灣富明街1號寶富大樓4樓A室', rating: 4.8, reviewCount: 128, priceRange: '$300-800', priceMin: 300, priceMax: 800, services: ['日本水療', '寵物美容', '精品店'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400' },
-  { id: '2', name: 'Paws In', district: 'Yuen Long', districtCn: '元朗', phone: '5538 0168', address: '元朗鳳攸北街11-15號益發大廈地下3號鋪', rating: 4.7, reviewCount: 95, priceRange: '$250-600', priceMin: 250, priceMax: 600, services: ['日式美容', 'SPA', '納米微泡'], image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400' },
-  { id: '3', name: 'Fluffy Little Things', district: 'Wan Chai', districtCn: '灣仔', phone: '2368 9833', address: '灣仔活道21號1樓B室', rating: 4.9, reviewCount: 156, priceRange: '$350-900', priceMin: 350, priceMax: 900, services: ['按摩', '水療', '日托服務'], image: 'https://images.unsplash.com/photo-1591768575198-ad40e1715d53?w=400' },
-  { id: '4', name: 'Ruff & Fetch', district: 'Jordan', districtCn: '佐敦', phone: '2348 0262', whatsapp: '6674 1567', address: '九龍佐敦官涌街7號', rating: 4.6, reviewCount: 203, priceRange: '$280-700', priceMin: 280, priceMax: 700, services: ['美容', '託管', '水療'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400' },
-  { id: '5', name: 'Private i PETS', district: 'Causeway Bay', districtCn: '銅鑼灣', phone: '2877 3100', address: '銅鑼灣京士頓街9號Shop A', rating: 4.5, reviewCount: 89, priceRange: '$400-1000', priceMin: 400, priceMax: 1000, services: ['人寵共融', '游泳池', '診所'], image: 'https://images.unsplash.com/photo-1599148400620-8e1ff0bf28a8?w=400' },
-  { id: '6', name: 'WOOF MAGIC', district: 'Sai Kung', districtCn: '西貢', phone: '9747 8349', address: '西貢惠民路28號WM酒店LG樓C2B號舖', rating: 4.7, reviewCount: 67, priceRange: '$350-850', priceMin: 350, priceMax: 850, services: ['美容', '派對租場', '寵物用品'], image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400' },
-  { id: '7', name: 'Dogotel & Spa', district: 'Mong Kok', districtCn: '旺角', phone: '2711 0019', address: '旺角梭椏道11號地下A店', rating: 4.4, reviewCount: 145, priceRange: '$300-750', priceMin: 300, priceMax: 750, services: ['美容', '日托', '住宿'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400' },
-  { id: '8', name: 'Q-Pet', district: 'Tsuen Wan', districtCn: '荃灣', phone: '2405 0616', address: '荃灣享和街88號安豐大廈6號舖', rating: 4.3, reviewCount: 234, priceRange: '$200-500', priceMin: 200, priceMax: 500, services: ['美容', '用品', '透明玻璃設計'], image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400' },
+  { id: '1', name: 'Paw Palace', district: 'Causeway Bay', districtCn: '銅鑼灣', phone: '2576 3999', address: '香港銅鑼灣富明街1號寶富大樓4樓A室', rating: 4.8, reviewCount: 128, priceRange: '$300-800', priceMin: 300, priceMax: 800, services: ['日本水療', '寵物美容', '精品店'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.2805, lng: 114.1836 },
+  { id: '2', name: 'Paws In', district: 'Yuen Long', districtCn: '元朗', phone: '5538 0168', address: '元朗鳳攸北街11-15號益發大廈地下3號鋪', rating: 4.7, reviewCount: 95, priceRange: '$250-600', priceMin: 250, priceMax: 600, services: ['日式美容', 'SPA', '納米微泡'], image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400', lat: 22.4446, lng: 114.0224 },
+  { id: '3', name: 'Fluffy Little Things', district: 'Wan Chai', districtCn: '灣仔', phone: '2368 9833', address: '灣仔活道21號1樓B室', rating: 4.9, reviewCount: 156, priceRange: '$350-900', priceMin: 350, priceMax: 900, services: ['按摩', '水療', '日托服務'], image: 'https://images.unsplash.com/photo-1591768575198-ad40e1715d53?w=400', lat: 22.2793, lng: 114.1718 },
+  { id: '4', name: 'Ruff & Fetch', district: 'Jordan', districtCn: '佐敦', phone: '2348 0262', whatsapp: '6674 1567', address: '九龍佐敦官涌街7號', rating: 4.6, reviewCount: 203, priceRange: '$280-700', priceMin: 280, priceMax: 700, services: ['美容', '託管', '水療'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.3050, lng: 114.1718 },
+  { id: '5', name: 'Private i PETS', district: 'Causeway Bay', districtCn: '銅鑼灣', phone: '2877 3100', address: '銅鑼灣京士頓街9號Shop A', rating: 4.5, reviewCount: 89, priceRange: '$400-1000', priceMin: 400, priceMax: 1000, services: ['人寵共融', '游泳池', '診所'], image: 'https://images.unsplash.com/photo-1599148400620-8e1ff0bf28a8?w=400', lat: 22.2783, lng: 114.1822 },
+  { id: '6', name: 'WOOF MAGIC', district: 'Sai Kung', districtCn: '西貢', phone: '9747 8349', address: '西貢惠民路28號WM酒店LG樓C2B號舖', rating: 4.7, reviewCount: 67, priceRange: '$350-850', priceMin: 350, priceMax: 850, services: ['美容', '派對租場', '寵物用品'], image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400', lat: 22.3841, lng: 114.2703 },
+  { id: '7', name: 'Dogotel & Spa', district: 'Mong Kok', districtCn: '旺角', phone: '2711 0019', address: '旺角梭椏道11號地下A店', rating: 4.4, reviewCount: 145, priceRange: '$300-750', priceMin: 300, priceMax: 750, services: ['美容', '日托', '住宿'], image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400', lat: 22.3193, lng: 114.1694 },
+  { id: '8', name: 'Q-Pet', district: 'Tsuen Wan', districtCn: '荃灣', phone: '2405 0616', address: '荃灣享和街88號安豐大廈6號舖', rating: 4.3, reviewCount: 234, priceRange: '$200-500', priceMin: 200, priceMax: 500, services: ['美容', '用品', '透明玻璃設計'], image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400', lat: 22.3738, lng: 114.1133 },
 ];
 
 const DISTRICTS = ['全港', '銅鑼灣', '旺角', '佐敦', '元朗', '荃灣', '沙田', '西貢', '灣仔', '太子', '荔枝角', '何文田', '土瓜灣', '北角', '觀塘'];
@@ -537,6 +537,51 @@ function EmptyFavorites({ onGoHome }) {
   );
 }
 
+function MapView({ shops, onShopClick }) {
+  return (
+    <div className="w-full h-[500px] rounded-2xl overflow-hidden bg-[#FFF7E4] border border-[#D7CCC8]">
+      <iframe
+        src={`https://maps.google.com/maps?q=22.3193,114.1694&z=11&output=embed`}
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        title="Shop Map"
+      />
+    </div>
+  );
+}
+
+function ViewToggle({ view, onChange }) {
+  return (
+    <div className="flex justify-center mb-4">
+      <div className="inline-flex bg-[#FFF7E4] border border-[#D7CCC8] rounded-full p-1">
+        <button
+          onClick={() => onChange('list')}
+          className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+            view === 'list'
+              ? 'bg-[#695D4E] text-white shadow-md'
+              : 'text-[#695D4E] hover:bg-[#D7CCC8]'
+          }`}
+        >
+          📋 清單
+        </button>
+        <button
+          onClick={() => onChange('map')}
+          className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+            view === 'map'
+              ? 'bg-[#695D4E] text-white shadow-md'
+              : 'text-[#695D4E] hover:bg-[#D7CCC8]'
+          }`}
+        >
+          🗺️ 地圖
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12 mt-12">
@@ -582,6 +627,7 @@ export default function Home() {
   const [selectedShop, setSelectedShop] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
+  const [view, setView] = useState('list');
   const [shops] = useState(SAMPLE_SHOPS);
 
   const searchSuggestions = useMemo(() => {
@@ -657,11 +703,16 @@ export default function Home() {
           {showFavorites && favorites.length === 0 ? (<EmptyFavorites onGoHome={() => setShowFavorites(false)} />) : (
             <>
               {!showFavorites && <AdBanner />}
-              <div className="space-y-4">
-                {displayShops.map(shop => (
-                  <ShopCard key={shop.id} shop={shop} isFavorite={favorites.some(f => f.id === shop.id)} onClick={() => setSelectedShop(shop)} onToggleFavorite={() => toggleFavorite(shop)} />
-                ))}
-              </div>
+              {!showFavorites && <ViewToggle view={view} onChange={setView} />}
+              {view === 'map' ? (
+                <MapView shops={filteredAndSortedShops} onShopClick={setSelectedShop} />
+              ) : (
+                <div className="space-y-4">
+                  {displayShops.map(shop => (
+                    <ShopCard key={shop.id} shop={shop} isFavorite={favorites.some(f => f.id === shop.id)} onClick={() => setSelectedShop(shop)} onToggleFavorite={() => toggleFavorite(shop)} />
+                  ))}
+                </div>
+              )}
               {displayShops.length > 0 && (
                 <p className="text-center text-gray-400 text-sm py-8 flex items-center justify-center gap-2">
                   <span className="w-2 h-2 bg-[#FFF7E4] rounded-full"></span>
