@@ -24,7 +24,23 @@ const HOT_TAGS = [
   { label: '💆‍♀️ SPA', type: 'service', value: 'SPA' },
   { label: '🐕 美容', type: 'service', value: '美容' }
 ];
-
+const SERVICE_CATEGORIES = [
+  { icon: '🛁', name: '日本水療', color: 'from-purple-500 to-purple-600' },
+  { icon: '💆‍♀️', name: 'SPA 按摩', color: 'from-pink-500 to-pink-600' },
+  { icon: '✂️', name: '美容修剪', color: 'from-blue-500 to-blue-600' },
+  { icon: '🏊', name: '游泳池', color: 'from-cyan-500 to-cyan-600' },
+];
+const WHY_US = [
+  { icon: '💰', title: '透明價格', desc: '清楚列明收費，唔怕被呃錢' },
+  { icon: '📱', title: 'WhatsApp 預約', desc: '唔洗打電話，最啱怕傾電話嘅你' },
+  { icon: '⭐', title: '真實評價', desc: '用家真實體驗，揀啱先預約' },
+  { icon: '🐾', title: '寵物檔案', desc: '記錄毛孩喜好，下次預約更方便' },
+];
+const TESTIMONIALS = [
+  { name: 'Coco 媽', avatar: '👩', rating: 5, text: '好方便！一set就搵到附近嘅寵物美容店' },
+  { name: '阿明', avatar: '👨', rating: 5, text: '價格透明，唔洗逐間打電話問' },
+  { name: 'Sonia', avatar: '👩‍🦰', rating: 5, text: '我家主子好怕陌生環境，但呢度既店家好有愛心' },
+];
 const SERVICE_COLORS = {
   '日本水療': 'bg-purple-100 text-purple-700 border-purple-200',
   '寵物美容': 'bg-pink-100 text-pink-700 border-pink-200',
@@ -52,7 +68,7 @@ function Header({ onShowFavorites }) {
       <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold text-white flex items-center gap-2">
           <span className="text-3xl">🐾</span>
-          <span className="bg-white/20 px-3 py-1 rounded-full text-sm">PetGroom HK</span>
+          <span className="hidden sm:inline bg-white/20 px-3 py-1 rounded-full text-sm">PetGroom HK</span>
         </Link>
         <div className="flex items-center gap-3">
           <Link href="/pets" className="flex items-center gap-2 text-white/90 hover:text-white bg-white/10 px-3 py-2 rounded-full transition-all hover:bg-white/20">
@@ -69,10 +85,180 @@ function Header({ onShowFavorites }) {
   );
 }
 
+function Hero({ onSearchFocus }) {
+  return (
+    <div className="relative bg-gradient-to-br from-purple-600 via-violet-600 to-purple-800 overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 bg-pink-400 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+      </div>
+      <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
+        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur rounded-full px-4 py-2 mb-6">
+          <span className="text-2xl">🐕</span>
+          <span className="text-white/90 text-sm font-medium">香港 No.1 寵物美容平台</span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          為毛孩搵最好嘅<br />
+          <span className="text-yellow-300">美容服務 💆‍♀️</span>
+        </h1>
+        <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+          透明價格 • WhatsApp 預約 • 真實評價<br />
+          一 App 搞掂毛孩美容大小事
+        </p>
+        <div className="relative max-w-2xl mx-auto" onClick={onSearchFocus}>
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-2xl blur opacity-30"></div>
+          <div className="relative flex items-center bg-white rounded-2xl shadow-2xl p-2">
+            <svg className="w-6 h-6 text-purple-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            <input type="text" placeholder="搜尋地區、服務、店家名稱..." 
+              className="flex-1 py-3 px-3 bg-transparent focus:outline-none text-gray-700 placeholder-gray-400 text-lg" />
+            <button className="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
+              搜尋
+            </button>
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <span className="text-white/70 text-sm">🔥 熱門：</span>
+          <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-white/30 transition">銅鑼灣</span>
+          <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-white/30 transition">日本水療</span>
+          <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-white/30 transition">SPA</span>
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
+    </div>
+  );
+}
+
+function StatsBar() {
+  return (
+    <div className="bg-white border-b border-gray-100">
+      <div className="max-w-4xl mx-auto px-4 py-6">
+        <div className="grid grid-cols-3 gap-4 text-center">
+          <div className="flex flex-col items-center">
+            <span className="text-3xl font-bold text-purple-600">127+</span>
+            <span className="text-gray-500 text-sm mt-1">間合作店鋪</span>
+          </div>
+          <div className="flex flex-col items-center border-l border-r border-gray-100">
+            <span className="text-3xl font-bold text-purple-600">5,000+</span>
+            <span className="text-gray-500 text-sm mt-1">用戶評價</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-3xl font-bold text-purple-600">18+</span>
+            <span className="text-gray-500 text-sm mt-1">個地區覆蓋</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WhyUsSection() {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-12">
+      <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">點解用 PetGroom HK？</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {WHY_US.map((item, index) => (
+          <div key={index} className="bg-white rounded-2xl p-5 shadow-lg border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1 text-center">
+            <span className="text-4xl mb-3 block">{item.icon}</span>
+            <h3 className="font-bold text-gray-800 mb-1">{item.title}</h3>
+            <p className="text-gray-500 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ServiceCategories({ onSelectCategory }) {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <h2 className="text-xl font-bold text-gray-800 mb-6">熱門服務類型</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {SERVICE_CATEGORIES.map((cat, index) => (
+          <button key={index} onClick={() => onSelectCategory(cat.name)}
+            className={`relative overflow-hidden rounded-2xl p-6 text-white text-left hover:scale-105 transition-all shadow-lg`}>
+            <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-90`}></div>
+            <div className="relative">
+              <span className="text-4xl mb-2 block">{cat.icon}</span>
+              <span className="font-bold text-lg">{cat.name}</span>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TopShopsSection({ shops, onShopClick }) {
+  const topShops = [...shops].sort((a, b) => b.rating - a.rating).slice(0, 3);
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-bold text-gray-800">🏆 熱門店家 TOP 3</h2>
+        <button className="text-purple-600 text-sm font-medium hover:underline">查看全部 →</button>
+      </div>
+      <div className="grid gap-4">
+        {topShops.map((shop, index) => (
+          <div key={shop.id} onClick={() => onShopClick(shop)}
+            className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden cursor-pointer hover:shadow-xl transition-all hover:-translate-y-1">
+            <div className="flex">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex-shrink-0">
+                <img src={shop.image} alt={shop.name} className="w-full h-full object-cover" />
+                <div className="absolute top-2 left-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                  {index + 1}
+                </div>
+              </div>
+              <div className="flex-1 p-4 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-start justify-between">
+                    <h3 className="font-bold text-lg text-gray-800">{shop.name}</h3>
+                    <span className="flex items-center gap-1 bg-yellow-50 text-yellow-600 px-2 py-1 rounded-lg text-sm font-medium">
+                      ⭐ {shop.rating}
+                    </span>
+                  </div>
+                  <p className="text-gray-500 text-sm mt-1">📍 {shop.districtCn}</p>
+                </div>
+                <div className="flex flex-wrap gap-1 mt-2">
+                  {shop.services.slice(0, 2).map((s, i) => (
+                    <span key={i} className="px-2 py-0.5 bg-purple-50 text-purple-600 text-xs rounded-full">{s}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TestimonialsSection() {
+  return (
+    <div className="bg-gradient-to-br from-purple-50 to-pink-50 py-12 mt-8">
+      <div className="max-w-4xl mx-auto px-4">
+        <h2 className="text-xl font-bold text-gray-800 text-center mb-8">用戶點講？</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          {TESTIMONIALS.map((item, index) => (
+            <div key={index} className="bg-white rounded-2xl p-5 shadow-lg border border-gray-100">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">{item.avatar}</span>
+                <span className="font-medium text-gray-800">{item.name}</span>
+              </div>
+              <div className="flex gap-0.5 mb-2">
+                {[...Array(item.rating)].map((_, i) => (<span key={i} className="text-yellow-400">⭐</span>))}
+              </div>
+              <p className="text-gray-600 text-sm">"{item.text}"</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SearchBar({ value, onChange, suggestions, onSelectSuggestion }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
   return (
-    <div className="relative max-w-4xl mx-auto px-4 my-5">
+    <div className="relative max-w-4xl mx-auto px-4 my-6">
       <div className="relative group">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity" />
         <div className="relative flex items-center bg-white rounded-2xl shadow-lg border border-gray-100 focus-within:ring-2 focus-within:ring-purple-500/50 transition-all">
@@ -353,6 +539,42 @@ function EmptyFavorites({ onGoHome }) {
   );
 }
 
+function Footer() {
+  return (
+    <footer className="bg-gray-900 text-white py-12 mt-12">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-2xl">🐾</span>
+              <span className="font-bold text-lg">PetGroom HK</span>
+            </div>
+            <p className="text-gray-400 text-sm">香港 No.1 寵物美容平台<br />為毛孩搵最好嘅服務</p>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">快速連結</h4>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li><a href="#" className="hover:text-white transition">首頁</a></li>
+              <li><a href="#" className="hover:text-white transition">所有店家</a></li>
+              <li><a href="/pets" className="hover:text-white transition">我的寵物</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">聯絡我們</h4>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li>📧 hello@petgroom.hk</li>
+              <li>📱 +852 1234 5678</li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+          <p>© 2026 PetGroom HK. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 export default function Home() {
   const [searchText, setSearchText] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('全港');
@@ -396,6 +618,7 @@ export default function Home() {
     else if (tag.type === 'rating') setSelectedRating(tag.value.toString());
     else if (tag.type === 'service') setSearchText(tag.value);
   };
+  const handleSelectCategory = (name) => setSearchText(name);
   const handleReset = () => { setSelectedDistrict('全港'); setSelectedPrice('all'); setSelectedRating('all'); setSearchText(''); };
 
   return (
@@ -409,6 +632,12 @@ export default function Home() {
         <Header onShowFavorites={() => setShowFavorites(true)} />
         {!showFavorites ? (
           <>
+            <Hero onSearchFocus={() => document.querySelector('input[type="text"]')?.focus()} />
+            <StatsBar />
+            <WhyUsSection />
+            <ServiceCategories onSelectCategory={handleSelectCategory} />
+            {!searchText && <TopShopsSection shops={shops} onShopClick={setSelectedShop} />}
+            {!searchText && <TestimonialsSection />}
             <SearchBar value={searchText} onChange={setSearchText} suggestions={searchSuggestions} onSelectSuggestion={handleSelectSuggestion} />
             <HotTags onSelectTag={handleSelectHotTag} />
             <FilterPanel selectedDistrict={selectedDistrict} onSelectDistrict={setSelectedDistrict} selectedPrice={selectedPrice} onSelectPrice={setSelectedPrice} selectedRating={selectedRating} onSelectRating={setSelectedRating} onReset={handleReset} />
@@ -445,6 +674,7 @@ export default function Home() {
             </>
           )}
         </main>
+        <Footer />
       </div>
       <ShopModal shop={selectedShop} onClose={() => setSelectedShop(null)} />
     </>
