@@ -43,7 +43,7 @@ const TESTIMONIALS = [
   { name: 'Sonia', avatar: '👩‍🦰', rating: 5, text: '我家主子好怕陌生環境，但呢度既店家好有愛心' },
 ];
 const SERVICE_COLORS = {
-  '日本水療': 'bg-[#FFF7E4] text-[#5D4037] border-[#D7CCC8]',
+  '日本水療': 'bg-[#FFF7E4] text-[#695D4E] border-[#D7CCC8]',
   '寵物美容': 'bg-pink-100 text-pink-700 border-pink-200',
   'SPA': 'bg-blue-100 text-blue-700 border-blue-200',
   '按摩': 'bg-[#FFF7E4] text-[#E65100] border-[#D7CCC8]',
@@ -53,12 +53,12 @@ const SERVICE_COLORS = {
   '託管': 'bg-[#FFF7E4] text-[#F57F17] border-[#FFF9C4]',
   '游泳池': 'bg-blue-100 text-blue-700 border-blue-200',
   '診所': 'bg-red-100 text-red-700 border-red-200',
-  '派對租場': 'bg-[#FFF7E4] text-[#5D4037] border-[#D7CCC8]',
+  '派對租場': 'bg-[#FFF7E4] text-[#695D4E] border-[#D7CCC8]',
   '寵物用品': 'bg-[#FFF7E4] text-[#E65100] border-[#D7CCC8]',
   '日托': 'bg-green-100 text-green-700 border-green-200',
   '住宿': 'bg-indigo-100 text-indigo-700 border-indigo-200',
   '用品': 'bg-gray-100 text-gray-700 border-gray-200',
-  '精品店': 'bg-[#FFF7E4] text-[#5D4037] border-[#D7CCC8]',
+  '精品店': 'bg-[#FFF7E4] text-[#695D4E] border-[#D7CCC8]',
   '納米微泡': 'bg-sky-100 text-sky-700 border-sky-200',
   '人寵共融': 'bg-pink-100 text-pink-700 border-pink-200',
 };
@@ -135,15 +135,15 @@ function StatsBar() {
       <div className="max-w-4xl mx-auto px-4 py-6">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="flex flex-col items-center">
-            <span className="text-3xl font-bold text-[#5D4037]">127+</span>
+            <span className="text-3xl font-bold text-[#695D4E]">127+</span>
             <span className="text-gray-500 text-sm mt-1">間合作店鋪</span>
           </div>
           <div className="flex flex-col items-center border-l border-r border-gray-100">
-            <span className="text-3xl font-bold text-[#5D4037]">5,000+</span>
+            <span className="text-3xl font-bold text-[#695D4E]">5,000+</span>
             <span className="text-gray-500 text-sm mt-1">用戶評價</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-3xl font-bold text-[#5D4037]">18+</span>
+            <span className="text-3xl font-bold text-[#695D4E]">18+</span>
             <span className="text-gray-500 text-sm mt-1">個地區覆蓋</span>
           </div>
         </div>
@@ -195,7 +195,7 @@ function TopShopsSection({ shops, onShopClick }) {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-gray-800">🏆 熱門店家 TOP 3</h2>
-        <button className="text-[#5D4037] text-sm font-medium hover:underline">查看全部 →</button>
+        <button className="text-[#695D4E] text-sm font-medium hover:underline">查看全部 →</button>
       </div>
       <div className="grid gap-4">
         {topShops.map((shop, index) => (
@@ -212,7 +212,7 @@ function TopShopsSection({ shops, onShopClick }) {
                 <div>
                   <div className="flex items-start justify-between">
                     <h3 className="font-bold text-lg text-gray-800">{shop.name}</h3>
-                    <span className="flex items-center gap-1 bg-[#FFF7E4] text-[#5D4037] px-2 py-1 rounded-lg text-sm font-medium">
+                    <span className="flex items-center gap-1 bg-[#FFF7E4] text-[#695D4E] px-2 py-1 rounded-lg text-sm font-medium">
                       ⭐ {shop.rating}
                     </span>
                   </div>
@@ -220,7 +220,7 @@ function TopShopsSection({ shops, onShopClick }) {
                 </div>
                 <div className="flex flex-wrap gap-1 mt-2">
                   {shop.services.slice(0, 2).map((s, i) => (
-                    <span key={i} className="px-2 py-0.5 bg-[#FFF7E4] text-[#5D4037] text-xs rounded-full">{s}</span>
+                    <span key={i} className="px-2 py-0.5 bg-[#FFF7E4] text-[#695D4E] text-xs rounded-full">{s}</span>
                   ))}
                 </div>
               </div>
@@ -274,7 +274,7 @@ function SearchBar({ value, onChange, suggestions, onSelectSuggestion }) {
           {suggestions.map((suggestion, index) => (
             <button key={index} onClick={() => { onSelectSuggestion(suggestion); setShowSuggestions(false); }}
               className="w-full px-5 py-4 text-left hover:bg-[#FFF7E4] border-b border-gray-50 last:border-0 transition-colors flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-[#FFF7E4] flex items-center justify-center text-[#5D4037] text-xs font-medium">{suggestion.type[0]}</span>
+              <span className="w-8 h-8 rounded-full bg-[#FFF7E4] flex items-center justify-center text-[#695D4E] text-xs font-medium">{suggestion.type[0]}</span>
               <span className="font-medium text-gray-700">{suggestion.text}</span>
             </button>
           ))}
@@ -290,7 +290,7 @@ function HotTags({ onSelectTag }) {
       <div className="flex flex-wrap gap-2.5">
         {HOT_TAGS.map((tag, index) => (
           <button key={index} onClick={() => onSelectTag(tag)}
-            className="px-4 py-2 bg-gradient-to-r from-[#FFF7E4] to-[#FFF7E4] border border-[#D7CCC8] text-[#5D4037] rounded-full text-sm font-medium hover:from-orange-100 hover:to-amber-100 hover:scale-105 transition-all shadow-sm active:scale-95">
+            className="px-4 py-2 bg-gradient-to-r from-[#FFF7E4] to-[#FFF7E4] border border-[#D7CCC8] text-[#695D4E] rounded-full text-sm font-medium hover:from-orange-100 hover:to-amber-100 hover:scale-105 transition-all shadow-sm active:scale-95">
             {tag.label}
           </button>
         ))}
@@ -337,7 +337,7 @@ function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSele
           </div>
           <div>
             <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-[#FFF7E4] flex items-center justify-center text-[#5D4037]">⭐</span>
+              <span className="w-6 h-6 rounded-full bg-[#FFF7E4] flex items-center justify-center text-[#695D4E]">⭐</span>
               最低評分
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -352,7 +352,7 @@ function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSele
             </div>
           </div>
           <div className="flex justify-end pt-2 border-t border-gray-100">
-            <button onClick={onReset} className="text-sm text-gray-500 hover:text-[#5D4037] flex items-center gap-1 transition-colors">
+            <button onClick={onReset} className="text-sm text-gray-500 hover:text-[#695D4E] flex items-center gap-1 transition-colors">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
               重置篩選
             </button>
@@ -367,10 +367,10 @@ function SortDropdown({ value, onChange, count }) {
   return (
     <div className="max-w-4xl mx-auto px-4 mb-4">
       <div className="flex items-center justify-between bg-white/80 backdrop-blur rounded-xl px-4 py-3 shadow-sm">
-        <span className="text-sm text-gray-500">找到 <span className="font-semibold text-[#5D4037]">{count}</span> 間優質店家</span>
+        <span className="text-sm text-gray-500">找到 <span className="font-semibold text-[#695D4E]">{count}</span> 間優質店家</span>
         <div className="relative">
           <select value={value} onChange={(e) => onChange(e.target.value)}
-            className="appearance-none bg-gradient-to-r from-[#FFF7E4] to-[#FFF7E4] border border-[#D7CCC8] rounded-xl px-4 py-2 pr-10 text-sm font-medium text-[#5D4037] focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer hover:shadow-md transition-all">
+            className="appearance-none bg-gradient-to-r from-[#FFF7E4] to-[#FFF7E4] border border-[#D7CCC8] rounded-xl px-4 py-2 pr-10 text-sm font-medium text-[#695D4E] focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer hover:shadow-md transition-all">
             {SORT_OPTIONS.map((option) => (<option key={option.value} value={option.value}>{option.label}</option>))}
           </select>
           <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#8D6E63] pointer-events-none">▼</span>
@@ -394,7 +394,7 @@ function ShopCard({ shop, isFavorite, onClick, onToggleFavorite }) {
         <div className="flex-1 p-4 flex flex-col justify-between">
           <div>
             <div className="flex items-start justify-between gap-2">
-              <h3 className="font-bold text-lg text-gray-800 group-hover:text-[#5D4037] transition-colors">{shop.name}</h3>
+              <h3 className="font-bold text-lg text-gray-800 group-hover:text-[#695D4E] transition-colors">{shop.name}</h3>
               <span className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap border border-green-200">{shop.priceRange}</span>
             </div>
             <div className="flex items-center gap-2 mt-1.5">
@@ -448,7 +448,7 @@ function WhatsAppButton({ phone, shopName }) {
 function MapButton({ address }) {
   const handleClick = () => { window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`, '_blank'); };
   return (
-    <button onClick={handleClick} className="w-full flex items-center justify-center gap-2.5 bg-white border-2 border-[#D7CCC8] text-[#5D4037] py-4 rounded-xl font-semibold hover:bg-[#FFF7E4] transition-all active:scale-[0.98]">
+    <button onClick={handleClick} className="w-full flex items-center justify-center gap-2.5 bg-white border-2 border-[#D7CCC8] text-[#695D4E] py-4 rounded-xl font-semibold hover:bg-[#FFF7E4] transition-all active:scale-[0.98]">
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
       查看地圖
     </button>
@@ -498,12 +498,12 @@ function ShopModal({ shop, onClose }) {
             </div>
             <div className="flex items-center gap-3">
               <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              <p className="text-[#5D4037] font-medium">{shop.phone}</p>
+              <p className="text-[#695D4E] font-medium">{shop.phone}</p>
             </div>
           </div>
           <div>
             <h3 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-[#FFF7E4] flex items-center justify-center text-[#5D4037]">✨</span>
+              <span className="w-8 h-8 rounded-full bg-[#FFF7E4] flex items-center justify-center text-[#695D4E]">✨</span>
               提供的服務
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -533,7 +533,7 @@ function EmptyFavorites({ onGoHome }) {
         <svg className="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
       </div>
       <p className="text-gray-500 mb-4 text-center">還沒有收藏的店家</p>
-      <button onClick={onGoHome} className="text-[#5D4037] font-medium hover:underline flex items-center gap-1">
+      <button onClick={onGoHome} className="text-[#695D4E] font-medium hover:underline flex items-center gap-1">
         去探索店家 →
       </button>
     </div>
@@ -646,7 +646,7 @@ export default function Home() {
           </>
         ) : (
           <div className="max-w-4xl mx-auto px-4 py-4">
-            <button onClick={() => setShowFavorites(false)} className="flex items-center gap-2 text-gray-600 mb-4 hover:text-[#5D4037] transition-colors">
+            <button onClick={() => setShowFavorites(false)} className="flex items-center gap-2 text-gray-600 mb-4 hover:text-[#695D4E] transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               返回首頁
             </button>
