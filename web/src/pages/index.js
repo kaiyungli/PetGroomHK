@@ -37,23 +37,6 @@ const WHY_US = [
   { icon: '🐾', title: '寵物檔案', desc: '記錄毛孩喜好，下次預約更方便' },
 ];
 
-const DISTRICT_ICONS = {
-  '全港': '🌏',
-  '銅鑼灣': '💎',
-  '旺角': '🔥',
-  '佐敦': '🏙️',
-  '元朗': '🌾',
-  '荃灣': '🏘️',
-  '沙田': '🏔️',
-  '西貢': '🏖️',
-  '灣仔': '🏛️',
-  '太子': '👑',
-  '荔枝角': '🎭',
-  '何文田': '🏡',
-  '土瓜灣': '🏘️',
-  '北角': '🌊',
-  '觀塘': '🏭',
-};
 const TESTIMONIALS = [
   { name: 'Coco 媽', avatar: '👩', rating: 5, text: '好方便！一set就搵到附近嘅寵物美容店' },
   { name: '阿明', avatar: '👨', rating: 5, text: '價格透明，唔洗逐間打電話問' },
@@ -164,33 +147,6 @@ function StatsBar() {
             <span className="text-gray-500 text-sm mt-1">個地區覆蓋</span>
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function DistrictSelector({ selectedDistrict, onSelectDistrict }) {
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">📍 選擇你嘅地區</h2>
-        <p className="text-gray-500">搵最近嘅寵物美容店</p>
-      </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
-        {DISTRICTS.map((district) => (
-          <button key={district} onClick={() => onSelectDistrict(district)}
-            className={`relative p-4 rounded-2xl text-center transition-all hover:scale-105 hover:shadow-lg ${
-              selectedDistrict === district
-                ? 'bg-gradient-to-br from-purple-500 to-violet-600 text-white shadow-purple-500/30 shadow-lg'
-                : 'bg-white text-gray-700 border border-gray-200 hover:border-purple-300 hover:bg-purple-50'
-            }`}>
-            <span className="text-3xl mb-2 block">{DISTRICT_ICONS[district] || '📍'}</span>
-            <span className="font-medium text-sm">{district}</span>
-            {selectedDistrict === district && (
-              <span className="absolute top-2 right-2 w-2 h-2 bg-white rounded-full"></span>
-            )}
-          </button>
-        ))}
       </div>
     </div>
   );
@@ -679,7 +635,6 @@ export default function Home() {
           <>
             <Hero onSearchFocus={() => document.querySelector('input[type="text"]')?.focus()} />
             <StatsBar />
-            <DistrictSelector selectedDistrict={selectedDistrict} onSelectDistrict={setSelectedDistrict} />
             <WhyUsSection />
             <ServiceCategories onSelectCategory={handleSelectCategory} />
             {!searchText && <TopShopsSection shops={shops} onShopClick={setSelectedShop} />}
