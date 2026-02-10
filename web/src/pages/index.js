@@ -25,7 +25,7 @@ const HOT_TAGS = [
   { label: '🐕 美容', type: 'service', value: '美容' }
 ];
 const SERVICE_CATEGORIES = [
-  { icon: '🛁', name: '日本水療', color: 'from-purple-500 to-purple-600' },
+  { icon: '🛁', name: '日本水療', color: 'from-amber-400 to-orange-400' },
   { icon: '💆‍♀️', name: 'SPA 按摩', color: 'from-pink-500 to-pink-600' },
   { icon: '✂️', name: '美容修剪', color: 'from-blue-500 to-blue-600' },
   { icon: '🏊', name: '游泳池', color: 'from-cyan-500 to-cyan-600' },
@@ -43,7 +43,7 @@ const TESTIMONIALS = [
   { name: 'Sonia', avatar: '👩‍🦰', rating: 5, text: '我家主子好怕陌生環境，但呢度既店家好有愛心' },
 ];
 const SERVICE_COLORS = {
-  '日本水療': 'bg-purple-100 text-purple-700 border-purple-200',
+  '日本水療': 'bg-amber-100 text-amber-700 border-amber-200',
   '寵物美容': 'bg-pink-100 text-pink-700 border-pink-200',
   'SPA': 'bg-blue-100 text-blue-700 border-blue-200',
   '按摩': 'bg-orange-100 text-orange-700 border-orange-200',
@@ -53,7 +53,7 @@ const SERVICE_COLORS = {
   '託管': 'bg-yellow-100 text-yellow-700 border-yellow-200',
   '游泳池': 'bg-blue-100 text-blue-700 border-blue-200',
   '診所': 'bg-red-100 text-red-700 border-red-200',
-  '派對租場': 'bg-purple-100 text-purple-700 border-purple-200',
+  '派對租場': 'bg-amber-100 text-amber-700 border-amber-200',
   '寵物用品': 'bg-orange-100 text-orange-700 border-orange-200',
   '日托': 'bg-green-100 text-green-700 border-green-200',
   '住宿': 'bg-indigo-100 text-indigo-700 border-indigo-200',
@@ -65,7 +65,7 @@ const SERVICE_COLORS = {
 
 function Header({ onShowFavorites }) {
   return (
-    <header className="bg-gradient-to-r from-purple-600 to-violet-600 shadow-lg sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-amber-500 to-yellow-500 shadow-lg sticky top-0 z-50">
       <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold text-white flex items-center gap-2">
           <span className="text-3xl">🐾</span>
@@ -88,7 +88,7 @@ function Header({ onShowFavorites }) {
 
 function Hero({ onSearchFocus }) {
   return (
-    <div className="relative bg-gradient-to-br from-purple-600 via-violet-600 to-purple-800 overflow-hidden">
+    <div className="relative bg-gradient-to-br from-amber-400 via-orange-400 to-amber-600 overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full filter blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-48 h-48 bg-pink-400 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
@@ -109,10 +109,10 @@ function Hero({ onSearchFocus }) {
         <div className="relative max-w-2xl mx-auto" onClick={onSearchFocus}>
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-2xl blur opacity-30"></div>
           <div className="relative flex items-center bg-white rounded-2xl shadow-2xl p-2">
-            <svg className="w-6 h-6 text-purple-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            <svg className="w-6 h-6 text-amber-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
             <input type="text" placeholder="搜尋地區、服務、店家名稱..." 
               className="flex-1 py-3 px-3 bg-transparent focus:outline-none text-gray-700 placeholder-gray-400 text-lg" />
-            <button className="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
+            <button className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
               搜尋
             </button>
           </div>
@@ -135,15 +135,15 @@ function StatsBar() {
       <div className="max-w-4xl mx-auto px-4 py-6">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="flex flex-col items-center">
-            <span className="text-3xl font-bold text-purple-600">127+</span>
+            <span className="text-3xl font-bold text-amber-700">127+</span>
             <span className="text-gray-500 text-sm mt-1">間合作店鋪</span>
           </div>
           <div className="flex flex-col items-center border-l border-r border-gray-100">
-            <span className="text-3xl font-bold text-purple-600">5,000+</span>
+            <span className="text-3xl font-bold text-amber-700">5,000+</span>
             <span className="text-gray-500 text-sm mt-1">用戶評價</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-3xl font-bold text-purple-600">18+</span>
+            <span className="text-3xl font-bold text-amber-700">18+</span>
             <span className="text-gray-500 text-sm mt-1">個地區覆蓋</span>
           </div>
         </div>
@@ -195,7 +195,7 @@ function TopShopsSection({ shops, onShopClick }) {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-gray-800">🏆 熱門店家 TOP 3</h2>
-        <button className="text-purple-600 text-sm font-medium hover:underline">查看全部 →</button>
+        <button className="text-amber-700 text-sm font-medium hover:underline">查看全部 →</button>
       </div>
       <div className="grid gap-4">
         {topShops.map((shop, index) => (
@@ -220,7 +220,7 @@ function TopShopsSection({ shops, onShopClick }) {
                 </div>
                 <div className="flex flex-wrap gap-1 mt-2">
                   {shop.services.slice(0, 2).map((s, i) => (
-                    <span key={i} className="px-2 py-0.5 bg-purple-50 text-purple-600 text-xs rounded-full">{s}</span>
+                    <span key={i} className="px-2 py-0.5 bg-amber-50 text-amber-700 text-xs rounded-full">{s}</span>
                   ))}
                 </div>
               </div>
@@ -234,7 +234,7 @@ function TopShopsSection({ shops, onShopClick }) {
 
 function TestimonialsSection() {
   return (
-    <div className="bg-gradient-to-br from-purple-50 to-pink-50 py-12 mt-8">
+    <div className="bg-gradient-to-br from-amber-50 to-orange-50 py-12 mt-8">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-xl font-bold text-gray-800 text-center mb-8">用戶點講？</h2>
         <div className="grid md:grid-cols-3 gap-4">
@@ -261,9 +261,9 @@ function SearchBar({ value, onChange, suggestions, onSelectSuggestion }) {
   return (
     <div className="relative max-w-4xl mx-auto px-4 my-6">
       <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity" />
-        <div className="relative flex items-center bg-white rounded-2xl shadow-lg border border-gray-100 focus-within:ring-2 focus-within:ring-purple-500/50 transition-all">
-          <svg className="w-5 h-5 text-purple-400 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity" />
+        <div className="relative flex items-center bg-white rounded-2xl shadow-lg border border-gray-100 focus-within:ring-2 focus-within:ring-amber-500/50 transition-all">
+          <svg className="w-5 h-5 text-amber-500 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
           <input type="text" placeholder="搜尋店家、服務、地區..." value={value} onChange={(e) => { onChange(e.target.value); setShowSuggestions(true); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
             className="w-full py-4 pr-12 bg-transparent focus:outline-none text-gray-700 placeholder-gray-400" />
           {value && <button onClick={() => onChange('')} className="mr-4 text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100 transition"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></button>}
@@ -273,8 +273,8 @@ function SearchBar({ value, onChange, suggestions, onSelectSuggestion }) {
         <div className="absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden">
           {suggestions.map((suggestion, index) => (
             <button key={index} onClick={() => { onSelectSuggestion(suggestion); setShowSuggestions(false); }}
-              className="w-full px-5 py-4 text-left hover:bg-purple-50 border-b border-gray-50 last:border-0 transition-colors flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-xs font-medium">{suggestion.type[0]}</span>
+              className="w-full px-5 py-4 text-left hover:bg-amber-50 border-b border-gray-50 last:border-0 transition-colors flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 text-xs font-medium">{suggestion.type[0]}</span>
               <span className="font-medium text-gray-700">{suggestion.text}</span>
             </button>
           ))}
@@ -308,7 +308,7 @@ function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSele
           <button key={district} onClick={() => onSelectDistrict(district)}
             className={`px-4 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all shadow-sm hover:shadow-md active:scale-95 ${
               selectedDistrict === district
-                ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-purple-500/30 shadow-lg'
+                ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-amber-500/30 shadow-lg'
                 : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
             }`}>{district}</button>
         ))}
@@ -352,7 +352,7 @@ function FilterPanel({ selectedDistrict, onSelectDistrict, selectedPrice, onSele
             </div>
           </div>
           <div className="flex justify-end pt-2 border-t border-gray-100">
-            <button onClick={onReset} className="text-sm text-gray-500 hover:text-purple-600 flex items-center gap-1 transition-colors">
+            <button onClick={onReset} className="text-sm text-gray-500 hover:text-amber-700 flex items-center gap-1 transition-colors">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
               重置篩選
             </button>
@@ -367,13 +367,13 @@ function SortDropdown({ value, onChange, count }) {
   return (
     <div className="max-w-4xl mx-auto px-4 mb-4">
       <div className="flex items-center justify-between bg-white/80 backdrop-blur rounded-xl px-4 py-3 shadow-sm">
-        <span className="text-sm text-gray-500">找到 <span className="font-semibold text-purple-600">{count}</span> 間優質店家</span>
+        <span className="text-sm text-gray-500">找到 <span className="font-semibold text-amber-700">{count}</span> 間優質店家</span>
         <div className="relative">
           <select value={value} onChange={(e) => onChange(e.target.value)}
-            className="appearance-none bg-gradient-to-r from-purple-50 to-violet-50 border border-purple-200 rounded-xl px-4 py-2 pr-10 text-sm font-medium text-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/50 cursor-pointer hover:shadow-md transition-all">
+            className="appearance-none bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-xl px-4 py-2 pr-10 text-sm font-medium text-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer hover:shadow-md transition-all">
             {SORT_OPTIONS.map((option) => (<option key={option.value} value={option.value}>{option.label}</option>))}
           </select>
-          <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-400 pointer-events-none">▼</span>
+          <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-amber-500 pointer-events-none">▼</span>
         </div>
       </div>
     </div>
@@ -394,7 +394,7 @@ function ShopCard({ shop, isFavorite, onClick, onToggleFavorite }) {
         <div className="flex-1 p-4 flex flex-col justify-between">
           <div>
             <div className="flex items-start justify-between gap-2">
-              <h3 className="font-bold text-lg text-gray-800 group-hover:text-purple-600 transition-colors">{shop.name}</h3>
+              <h3 className="font-bold text-lg text-gray-800 group-hover:text-amber-700 transition-colors">{shop.name}</h3>
               <span className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap border border-green-200">{shop.priceRange}</span>
             </div>
             <div className="flex items-center gap-2 mt-1.5">
@@ -448,7 +448,7 @@ function WhatsAppButton({ phone, shopName }) {
 function MapButton({ address }) {
   const handleClick = () => { window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`, '_blank'); };
   return (
-    <button onClick={handleClick} className="w-full flex items-center justify-center gap-2.5 bg-white border-2 border-purple-500 text-purple-600 py-4 rounded-xl font-semibold hover:bg-purple-50 transition-all active:scale-[0.98]">
+    <button onClick={handleClick} className="w-full flex items-center justify-center gap-2.5 bg-white border-2 border-amber-500 text-amber-700 py-4 rounded-xl font-semibold hover:bg-amber-50 transition-all active:scale-[0.98]">
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
       查看地圖
     </button>
@@ -486,7 +486,7 @@ function ShopModal({ shop, onClose }) {
         <div className="p-6 space-y-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-gray-600">
-              <svg className="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
+              <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
               <span className="text-sm">{shop.districtCn}</span>
             </div>
             <span className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-semibold border border-green-200">{shop.priceRange}</span>
@@ -498,12 +498,12 @@ function ShopModal({ shop, onClose }) {
             </div>
             <div className="flex items-center gap-3">
               <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              <p className="text-purple-600 font-medium">{shop.phone}</p>
+              <p className="text-amber-700 font-medium">{shop.phone}</p>
             </div>
           </div>
           <div>
             <h3 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">✨</span>
+              <span className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-700">✨</span>
               提供的服務
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -533,7 +533,7 @@ function EmptyFavorites({ onGoHome }) {
         <svg className="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
       </div>
       <p className="text-gray-500 mb-4 text-center">還沒有收藏的店家</p>
-      <button onClick={onGoHome} className="text-purple-600 font-medium hover:underline flex items-center gap-1">
+      <button onClick={onGoHome} className="text-amber-700 font-medium hover:underline flex items-center gap-1">
         去探索店家 →
       </button>
     </div>
@@ -646,7 +646,7 @@ export default function Home() {
           </>
         ) : (
           <div className="max-w-4xl mx-auto px-4 py-4">
-            <button onClick={() => setShowFavorites(false)} className="flex items-center gap-2 text-gray-600 mb-4 hover:text-purple-600 transition-colors">
+            <button onClick={() => setShowFavorites(false)} className="flex items-center gap-2 text-gray-600 mb-4 hover:text-amber-700 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               返回首頁
             </button>
@@ -667,9 +667,9 @@ export default function Home() {
               </div>
               {displayShops.length > 0 && (
                 <p className="text-center text-gray-400 text-sm py-8 flex items-center justify-center gap-2">
-                  <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
+                  <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
                   已顯示 {displayShops.length} 間店家
-                  <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
+                  <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
                 </p>
               )}
             </>
