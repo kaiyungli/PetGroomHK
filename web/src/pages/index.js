@@ -635,14 +635,14 @@ export default function Home() {
           <>
             <Hero onSearchFocus={() => document.querySelector('input[type="text"]')?.focus()} />
             <WhyUsSection />
-            <StatsBar />
             <ServiceCategories onSelectCategory={handleSelectCategory} />
             {!searchText && <TopShopsSection shops={shops} onShopClick={setSelectedShop} />}
-            {!searchText && <TestimonialsSection />}
             <SearchBar value={searchText} onChange={setSearchText} suggestions={searchSuggestions} onSelectSuggestion={handleSelectSuggestion} />
             <HotTags onSelectTag={handleSelectHotTag} />
             <FilterPanel selectedDistrict={selectedDistrict} onSelectDistrict={setSelectedDistrict} selectedPrice={selectedPrice} onSelectPrice={setSelectedPrice} selectedRating={selectedRating} onSelectRating={setSelectedRating} onReset={handleReset} />
             <SortDropdown value={sortBy} onChange={setSortBy} count={filteredAndSortedShops.length} />
+            {!searchText && <StatsBar />}
+            {!searchText && <TestimonialsSection />}
           </>
         ) : (
           <div className="max-w-4xl mx-auto px-4 py-4">
