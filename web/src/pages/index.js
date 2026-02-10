@@ -634,8 +634,8 @@ export default function Home() {
         {!showFavorites ? (
           <>
             <Hero onSearchFocus={() => document.querySelector('input[type="text"]')?.focus()} />
-            <StatsBar />
             <WhyUsSection />
+            <StatsBar />
             <ServiceCategories onSelectCategory={handleSelectCategory} />
             {!searchText && <TopShopsSection shops={shops} onShopClick={setSelectedShop} />}
             {!searchText && <TestimonialsSection />}
