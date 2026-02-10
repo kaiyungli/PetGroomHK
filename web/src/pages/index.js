@@ -244,6 +244,8 @@ export default function Home() {
     return result;
   }, [shops, searchText, selectedDistrict, selectedPrice, selectedRating, sortBy]);
 
+  const displayShops = showFavorites ? favorites : filteredAndSortedShops;
+
   const toggleFavorite = (e, shop) => { e.stopPropagation(); if (favorites.find(f => f.id === shop.id)) setFavorites(favorites.filter(f => f.id !== shop.id)); else setFavorites([...favorites, shop]); };
   const handleSelectSuggestion = (suggestion) => setSearchText(suggestion.text);
   const handleSelectHotTag = (tag) => { if (tag.type === 'district') setSelectedDistrict(tag.value); else if (tag.type === 'rating') setSelectedRating(tag.value.toString()); else if (tag.type === 'service') setSearchText(tag.value); };
