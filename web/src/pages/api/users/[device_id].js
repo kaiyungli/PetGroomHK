@@ -1,5 +1,10 @@
 // API route for user favorites sync (using device_id as user identifier)
-import { getUserFavorites, updateUserFavorites } from '../../lib/db';
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+});
 
 export default async function handler(request) {
   const { device_id } = request.query;
@@ -14,8 +19,12 @@ export default async function handler(request) {
 
   try {
     if (method === 'GET') {
-      // Get user favorites
-      const favorites = await getUserFavorites(device_id);
+      const result = await pool.query(
+        'SELECT favorites FROM users WHERE device_id = $1',
+        [device_id]
+      );
+
+      const favorites = result.rows.length > 0 ? result.rows[0].favorites || [] : [];
 
       return new Response(JSON.stringify({ favorites }), {
         status: 200,
@@ -23,11 +32,16 @@ export default async function handler(request) {
       });
 
     } else if (method === 'PUT' || method === 'POST') {
-      // Update user favorites
       const body = await request.json();
       const { favorites } = body;
 
-      await updateUserFavorites(device_id, favorites);
+      await pool.query(
+        `INSERT INTO users (device_id, favorites, updated_at)
+         VALUES ($1, $2, CURRENT_TIMESTAMP)
+         ON CONFLICT (device_id)
+         DO UPDATE SET favorites = $2, updated_at = CURRENT_TIMESTAMP`,
+        [device_id, JSON.stringify(favorites)]
+      );
 
       return new Response(JSON.stringify({ success: true }), {
         status: 200,
